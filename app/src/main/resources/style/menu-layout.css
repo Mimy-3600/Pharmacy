@@ -1,0 +1,5 @@
+.menu-layout {
+	-fx-background-color: #f8f9fd;
+	-fx-min-height: 500px;
+	-fx-pref-width: 250px;
+}
