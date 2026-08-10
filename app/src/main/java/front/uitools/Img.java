@@ -1,4 +1,4 @@
-package org.uitools;
+package front.uitools;
 
 import java.io.InputStream;
 import javafx.scene.image.Image;

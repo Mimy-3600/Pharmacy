@@ -1,17 +1,20 @@
-package org.main.app;
+package front.main.app;
 
+import java.util.List;
+import java.util.ArrayList;
 import javafx.application.Application;
 import javafx.stage.Stage;
+import javafx.scene.text.Font;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.Scene;
-import org.main.app.setter.NavigationSetter;
+import front.main.app.setter.NavigationSetter;
 
 public class App extends Application {
 
 	public static boolean displayMenu = true;
 
-	public static VBox navigationLayout = new VBox(0);
+	public static VBox navigationLayout = new VBox(10);
 
 	public static VBox menuLayout = new VBox(0);
 
@@ -19,6 +22,7 @@ public class App extends Application {
 
 	@Override
 	public void start(Stage stage) {
+		this.loadFont();
 		this.setUpMainLayout(stage);
 	}
 
@@ -74,13 +78,31 @@ public class App extends Application {
 
 
 	/**
+	 * 
+	 * Load fonts
+	 * 
+	 * */
+	 private void loadFont() {
+		Font.loadFont(getClass().getResourceAsStream("/fonts/GoogleSansFlex_24pt-Regular.ttf"), 14);
+		Font.loadFont(getClass().getResourceAsStream("/fonts/GoogleSansFlex_24pt-Bold.ttf"), 14);
+		Font.loadFont(getClass().getResourceAsStream("/fonts/GoogleSansFlex_24pt-Medium.ttf"), 14);
+		Font.loadFont(getClass().getResourceAsStream("/fonts/GoogleSansFlex_24pt-Light.ttf"), 14);
+	 }
+
+
+	/**
 	 * Set Style
 	 * */
 	public void setStyle(Scene scene){
-		String navigationLayoutCSS = getClass().getResource("/style/navigation-layout.css").toExternalForm();
-		String menuLayoutCSS = getClass().getResource("/style/menu-layout.css").toExternalForm();
-		String contentLayoutCSS = getClass().getResource("/style/content-layout.css").toExternalForm();
 
-		scene.getStylesheets().addAll(navigationLayoutCSS, menuLayoutCSS, contentLayoutCSS);
+		ArrayList<String> CSS = new ArrayList<>(List.of(
+			getClass().getResource("/style/root.css").toExternalForm(),
+			getClass().getResource("/style/navigation-layout.css").toExternalForm(),
+			getClass().getResource("/style/menu-layout.css").toExternalForm(),
+			getClass().getResource("/style/content-layout.css").toExternalForm(),
+			getClass().getResource("/style/nav-button.css").toExternalForm()
+		));
+
+		scene.getStylesheets().addAll(CSS);
 	}
 }

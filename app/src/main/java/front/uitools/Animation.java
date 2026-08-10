@@ -1,4 +1,4 @@
-package org.uitools;
+package front.uitools;
 
 import javafx.animation.Timeline;
 import javafx.animation.KeyFrame;

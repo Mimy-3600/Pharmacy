@@ -26,7 +26,7 @@ dependencies {
 
 application {
     // TRÈS IMPORTANT : On utilise le Launcher pour éviter les erreurs de modules Java
-    mainClass.set("org.main.app.App")
+    mainClass.set("front.main.app.App")
 }
 
 tasks.withType<JavaExec> {

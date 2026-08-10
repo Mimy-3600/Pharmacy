@@ -3,7 +3,8 @@
 
 	-fx-min-height: 500px;
 
-	-fx-min-width: 70px;
-	-fx-max-width: 70px;
-	-fx-pref-width: 70px;
+	-fx-min-width: 90px;
+	-fx-max-width: 90px;
+	-fx-pref-width: 90px;
+	-fx-padding: 24px 0;
 }
