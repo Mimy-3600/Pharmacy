@@ -9,6 +9,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.Scene;
 import front.main.app.setter.NavigationSetter;
+import front.main.app.setter.ContentSetter;
 
 public class App extends Application {
 
@@ -18,7 +19,7 @@ public class App extends Application {
 
 	public static VBox menuLayout = new VBox(0);
 
-	public static VBox contentLayout = new VBox(0);
+	public static HBox contentLayout = new HBox(0);
 
 	@Override
 	public void start(Stage stage) {
@@ -52,17 +53,18 @@ public class App extends Application {
 		menuLayout.getStyleClass().add("menu-layout");
 
 		// CONTENT LAYOUT
-		mainLayout.getStyleClass().add("content-layout");
+		contentLayout.getStyleClass().add("content-layout");
 
 		/**
 		 * Include content and navigation layout
 		 * */
-		mainLayout.getChildren().addAll(navigationLayout, contentLayout, menuLayout);
+		mainLayout.getChildren().addAll(navigationLayout, menuLayout, contentLayout);
 
 		/**
 		 * setup
 		 * */
 		NavigationSetter.set();
+		ContentSetter.set();
 
 		/**
 		 * Set up main Scene with Layout

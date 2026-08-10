@@ -1,6 +1,8 @@
 .content-layout {
 	-fx-background-color: #ffffff;
+	-fx-padding: 0px 24px;
+}
 
-	-fx-pref-width : 800px;
-	-fx-min-width : 800px;
+.content-container {
+	-fx-background-color: #fccc54;
 }
