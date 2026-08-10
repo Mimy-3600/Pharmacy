@@ -18,7 +18,8 @@ public class ContentSetter {
 		App.contentLayout.setMinWidth(400);
 
 		mainContentConainer.getStyleClass().add("content-container");
-		HBox.setVgrow(mainContentConainer, Priority.ALWAYS);
+		VBox.setVgrow(mainContentConainer, Priority.ALWAYS);
+		mainContentConainer.setMinHeight(500);
 
 		App.contentLayout.getChildren().add(mainContentConainer);
 	}
