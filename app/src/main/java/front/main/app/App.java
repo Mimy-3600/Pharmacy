@@ -102,7 +102,8 @@ public class App extends Application {
 			getClass().getResource("/style/navigation-layout.css").toExternalForm(),
 			getClass().getResource("/style/menu-layout.css").toExternalForm(),
 			getClass().getResource("/style/content-layout.css").toExternalForm(),
-			getClass().getResource("/style/nav-button.css").toExternalForm()
+			getClass().getResource("/style/nav-button.css").toExternalForm(),
+			getClass().getResource("/style/store-activity.css").toExternalForm()
 		));
 
 		scene.getStylesheets().addAll(CSS);

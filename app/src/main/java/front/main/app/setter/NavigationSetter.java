@@ -11,6 +11,7 @@ import javafx.scene.shape.SVGPath;
 import front.uitools.Animation;
 import front.components.NavButton;
 import front.main.app.App;
+import front.main.app.setter.ContentSetter;
 
 public class NavigationSetter {
 
@@ -50,6 +51,7 @@ public class NavigationSetter {
 
 			btn.getTouchButton().setOnAction(event -> {
 				navigateTo(btn.getName());
+				ContentSetter.to(btn.getName());
 				if(btn.getName() == "Purchase" || btn.getName() == "Recipe") {
 					showMenu();
 				} else {
