@@ -1,11 +1,9 @@
 package front.activities;
 
+import front.components.StorePane;
 import front.components.CircleButton;
 import front.components.LargeInput;
 import front.components.PharmacyPresenter;
-import javafx.scene.layout.Priority;
-import javafx.scene.text.Text;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.scene.layout.HBox;
@@ -14,7 +12,7 @@ public class StoreActivity extends VBox {
 
 	private String name;
 	private HBox header = new HBox();
-	private StackPane content = new StackPane();
+	private StorePane content = new StorePane();
 
 	public StoreActivity(String activityname) {
 		name = activityname;
@@ -37,9 +35,18 @@ public class StoreActivity extends VBox {
 	private void setHeader() {
 		PharmacyPresenter presenter = new PharmacyPresenter();
 		Region spacer1 = new Region();
-		LargeInput search = new LargeInput();
+		LargeInput search = new LargeInput("Rechercher des médicaments, des achats ou des entrées");
 		Region spacer2 = new Region();
 		CircleButton notificationButton = new CircleButton("Notification");
+
+		search.setOnChange((_, newValue) -> {
+			if(newValue != "") {
+				content.change("derive");
+				content.find(newValue);
+			} else {
+				content.change("main");
+			}
+		});
 
 		spacer1.getStyleClass().add("spacer");
 		spacer2.getStyleClass().add("spacer");

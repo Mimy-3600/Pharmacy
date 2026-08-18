@@ -10,6 +10,8 @@ import javafx.scene.layout.VBox;
 import javafx.scene.Scene;
 import front.main.app.setter.NavigationSetter;
 import front.main.app.setter.ContentSetter;
+import back.model.Medoc;
+import back.repository.MedocRepository;;
 
 public class App extends Application {
 
@@ -21,8 +23,12 @@ public class App extends Application {
 
 	public static HBox contentLayout = new HBox(0);
 
+	private static ArrayList<Medoc> _listsMedocs = new ArrayList<>();
+
 	@Override
 	public void start(Stage stage) {
+		_listsMedocs = MedocRepository.getListsMedoc();
+
 		this.loadFont();
 		this.setUpMainLayout(stage);
 	}
@@ -103,9 +109,24 @@ public class App extends Application {
 			getClass().getResource("/style/menu-layout.css").toExternalForm(),
 			getClass().getResource("/style/content-layout.css").toExternalForm(),
 			getClass().getResource("/style/nav-button.css").toExternalForm(),
-			getClass().getResource("/style/store-activity.css").toExternalForm()
+			getClass().getResource("/style/store-pane.css").toExternalForm(),
+			getClass().getResource("/style/store-activity.css").toExternalForm(),
+			getClass().getResource("/style/medicine-activity.css").toExternalForm(),
+			getClass().getResource("/style/medoc.css").toExternalForm(),
+			getClass().getResource("/style/button.css").toExternalForm()
 		));
 
+
 		scene.getStylesheets().addAll(CSS);
+	}
+
+	public static void navigateTo(String name) {
+		NavigationSetter.navigateTo(name);
+		ContentSetter.to(name);
+	}
+
+
+	public static ArrayList<Medoc> getMedocList() {
+		return _listsMedocs;
 	}
 }

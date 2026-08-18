@@ -1,0 +1,123 @@
+.medoc-list-style {
+	-fx-pref-height: 70px;
+	-fx-max-height: 70px;
+	-fx-min-height: 70px;
+
+	-fx-border-color: #F8F9FD transparent transparent transparent;
+	-fx-border-width: 2px 0 0 0;
+	-fx-padding: 10px;
+	-fx-background-color: #ffffff !important;
+	-fx-background-radius: 5px;
+
+	-fx-alignment: CENTER_LEFT;
+
+	-fx-cursor: hand;
+}
+
+.medoc-list-style * {
+	-fx-alignment: CENTER_LEFT;
+}
+
+.medoc-list-style:hover {
+	-fx-background-color: #F8F9FD !important;
+}
+
+.medoc-list-style:hover * {
+	-fx-background-color: #F8F9FD !important;
+}
+
+.medoc-list-style-img {
+	-fx-pref-width: 50px;
+	-fx-max-width: 50px;
+	-fx-min-width: 50px;
+
+	-fx-pref-height: 50px;
+	-fx-max-height: 50px;
+	-fx-min-height: 50px;
+}
+
+.medoc-list-style-number {
+	-fx-fill: #bdbdbd;
+	-fx-font-size: 13px;
+}
+
+.medoc-list-style-designation {
+	-fx-fill: #444746;
+	-fx-font-size: 20px;
+}
+
+.medoc-list-style-stock {
+	-fx-fill: #444746;
+	-fx-font-size: 16px;
+}
+
+.medoc-list-style-stock.urgent {
+	-fx-fill: #d90000;
+	-fx-font-size: 16px;
+	-fx-font-weight: bold;
+}
+
+.medoc-list-style-stock-c{
+	-fx-min-width: 100px;
+}
+
+.medoc-list-style-ar {
+	-fx-fill: #444746;
+	-fx-font-size: 15px;
+}
+
+.medoc-list-style-unit-price {
+	-fx-fill: #444746;
+	-fx-font-size: 15px;
+}
+
+.medoc-list-style-unit-price-c {
+	-fx-min-width: 80px;
+}
+
+.medoc-card {
+	-fx-max-width: 230px;
+	-fx-min-width: 230px;
+	-fx-pref-width: 230px;
+
+	-fx-max-height: 230px;
+	-fx-min-height: 230px;
+	-fx-pref-height: 230px;
+
+	-fx-padding: 10px;
+
+	-fx-background-color: #ffffff !important;
+	-fx-background-radius: 10px;
+	-fx-border-radius: 10px;
+	-fx-border-color: #F8F9FD;
+	-fx-border-width: 2px;
+
+	-fx-cursor: hand;
+}
+
+.medoc-card-number {
+	-fx-fill: #bdbdbd;
+	-fx-font-size: 14px;
+}
+
+.medoc-card-desigantion {
+	-fx-fill: #21519E;
+	-fx-font-size: 20px;
+}
+
+.medoc-card-action {
+	-fx-min-height: 25px;
+}
+
+.medoc-card-info {
+	-fx-min-height: 30px;
+	-fx-alignment: CENTER;
+}
+
+.medoc-card-stock {
+	-fx-fill: #ff0044;
+}
+
+.medoc-card-price {
+	-fx-fill: #1a9000;
+}

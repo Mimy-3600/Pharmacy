@@ -1,7 +1,5 @@
 package front.main.app.setter;
 
-import javafx.scene.text.Text;
-import javafx.scene.control.Button;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import javafx.scene.layout.HBox;

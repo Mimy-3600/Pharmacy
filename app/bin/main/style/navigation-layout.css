@@ -1,0 +1,20 @@
+.navigation-layout {
+	-fx-background-color: #f0f3f9;
+
+	-fx-min-height: 500px;
+
+	-fx-min-width: 90px;
+	-fx-max-width: 90px;
+	-fx-pref-width: 90px;
+	-fx-padding: 24px 0;
+}
+
+.theme-toggle {
+	-fx-background-color: #fccc54;
+    -fx-pref-width: 90px;
+    -fx-pref-height: 90px;
+    -fx-min-width: 90px;
+    -fx-min-height: 90px;
+    -fx-max-width: 90px;
+    -fx-max-height: 90px;
+}

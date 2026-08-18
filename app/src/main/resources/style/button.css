@@ -1,0 +1,72 @@
+.mini-button {
+	-fx-pref-height: 25px;
+	-fx-min-height: 25px;
+	-fx-max-height: 25px;
+
+	-fx-pref-width: 25px;
+	-fx-min-width: 25px;
+	-fx-max-width: 25px;
+
+	-fx-background-color: #ffffff !important;
+	-fx-background-radius: 12.5px;
+
+	-fx-alignment: center;
+	-fx-cursor: hand;
+}
+
+.mini-button:hover .mini-button-stroke{
+	-fx-stroke-width: 3px;
+	-fx-stroke: #5D65FF !important;
+}
+
+.mini-button-stroke {
+	-fx-fill: transparent !important;
+	-fx-stroke: #bdbdbd !important;
+	-fx-stroke-width: 2px;
+	-fx-stroke-line-cap: round;
+	-fx-stroke-line-join: round;
+}
+
+.active-button {
+	-fx-max-height: 50px;
+	-fx-min-height: 50px;
+	-fx-pref-height: 50px;
+
+	-fx-max-width: 150px;
+	-fx-min-width: 150px;
+	-fx-pref-width: 150px;
+
+	-fx-background-color: #ffffff !important;
+	-fx-border-color: #bdbdbd !important;
+	-fx-border-width: 1px;
+	-fx-cursor: hand;
+}
+
+.active-button:hover {
+	-fx-border-color: #444746 !important;
+}
+
+.active-button:hover * {
+	-fx-fill: #444746 !important;
+}
+
+.active-button.active, .active-button.active:hover {
+	-fx-border-color: #5D65FF !important;
+}
+
+.active-button.active * , .active-button.active:hover * {
+	-fx-fill: #5D65FF !important;
+	-fx-font-weight: bold;
+}
+
+.active-button * {
+	-fx-fill: #bdbdbd !important;
+}
+
+.active-button.FIRST {
+	-fx-border-radius: 25px 0px 0px 25px;
+}
+
+.active-button.LAST {
+	-fx-border-radius: 0px 25px 25px 0px;
+}

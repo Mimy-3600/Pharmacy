@@ -1,0 +1,55 @@
+.medoc-presenter {
+	-fx-pref-height: 76px;
+	-fx-min-height: 76px;
+	-fx-max-height: 76px;
+
+	-fx-alignment: CENTER_LEFT;
+
+	-fx-padding: 20px;
+}
+
+.medoc-presenter-text {
+	-fx-font-size: 30px;
+	-fx-fill: #444746;
+}
+
+.medoc-activity-content {
+	-fx-min-height: 500px;
+	-fx-border-width: 0;
+	-fx-padding: 0px;
+	-fx-background-insets: 0;
+
+}
+
+.medoc-activity-content * {
+	-fx-background-color: #ffffff;
+}
+
+.medoc-filter-layout {
+	-fx-padding: 7.5px;
+
+	-fx-min-height: 65px;
+	-fx-max-height: 65px;
+	-fx-pref-height: 65px;
+}
+
+.medoc-header {
+	-fx-alignment: BOTTOM_LEFT;
+}
+
+.medicine-main-container {
+	-fx-padding: 10px;
+	-fx-min-height: 100px;
+}
+
+.all-medoc-container {
+	-fx-min-height: 530px;
+}
+
+.out-medoc-container {
+	-fx-min-height: 530px;
+}
+
+.card {
+	-fx-alignment: CENTER;
+}

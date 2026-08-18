@@ -2,16 +2,10 @@ package front.main.app.setter;
 
 import java.util.Map;
 import java.util.HashMap;
-import javafx.scene.layout.VBox;
-import javafx.scene.layout.Region;
-import javafx.scene.layout.Priority;
 import javafx.animation.Timeline;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.SVGPath;
 import front.uitools.Animation;
 import front.components.NavButton;
 import front.main.app.App;
-import front.main.app.setter.ContentSetter;
 
 public class NavigationSetter {
 
@@ -49,14 +43,9 @@ public class NavigationSetter {
 			NavButton btn = navItem.getValue();
 			String page = navItem.getKey();
 
-			btn.getTouchButton().setOnAction(event -> {
+			btn.getTouchButton().setOnAction(_ -> {
 				navigateTo(btn.getName());
 				ContentSetter.to(btn.getName());
-				if(btn.getName() == "Purchase" || btn.getName() == "Recipe") {
-					showMenu();
-				} else {
-					hideMenu();
-				}
 			});
 		}
 	}
@@ -68,6 +57,12 @@ public class NavigationSetter {
 				String page = navItem.getKey();
 
 				btn.disable();
+			}
+
+			if(pageName == "Purchase" || pageName == "Recipe" || pageName == "Entry") {
+				showMenu();
+			} else {
+				hideMenu();
 			}
 
 			actualPage = pageName;
@@ -85,7 +80,7 @@ public class NavigationSetter {
 	 * */
 	 public static void showMenu() {
 	 	if(!App.displayMenu) {
-			Timeline displayBlock = Animation.getWidthAnimation(App.menuLayout, 200, 300);
+			Timeline displayBlock = Animation.getWidthAnimation(App.menuLayout, 200, 400);
 			displayBlock.play();
 
 			App.displayMenu = true;
