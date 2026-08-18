@@ -1,0 +1,15 @@
+.remove-medicine {
+	-fx-padding: 20px;
+	-fx-alignment: top-center;
+}
+
+.remove-medicine-action-box * {
+	-fx-max-width: 360px !important;
+	-fx-min-width: 360px !important;
+	-fx-pref-width: 360px !important;
+}
+
+.remove-medicine-medoc-name {
+	-fx-font-size: 20px;
+	-fx-fill: #21519E;
+}

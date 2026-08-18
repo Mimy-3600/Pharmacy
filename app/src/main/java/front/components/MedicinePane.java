@@ -2,6 +2,7 @@ package front.components;
 
 import java.util.ArrayList;
 import back.model.Medoc;
+import back.repository.MedocRepository;
 import front.components.medoc.MedocCardStyle;
 import front.main.app.App;
 import javafx.scene.control.ScrollPane;
@@ -145,5 +146,13 @@ public class MedicinePane extends ScrollPane {
 			this.setAllMedoc(_listsMedocs);
 			this.setOutMedoc(_listsMedocs);
 		}
+	}
+
+	public void refresh() {
+		_listsMedocs.clear();
+		_listsMedocs = MedocRepository.getListsMedoc();
+
+		this.setAllMedoc(_listsMedocs);
+		this.setOutMedoc(_listsMedocs);
 	}
 }

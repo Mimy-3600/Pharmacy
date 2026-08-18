@@ -1,0 +1,30 @@
+.purchase-presenter {
+	-fx-pref-height: 76px;
+	-fx-min-height: 76px;
+	-fx-max-height: 76px;
+
+	-fx-alignment: CENTER_LEFT;
+
+	-fx-padding: 20px;
+}
+
+.purchase-presenter-text {
+	-fx-font-size: 30px;
+	-fx-fill: #444746;
+}
+
+.purchase-activity-content {
+	-fx-min-height: 500px;
+	-fx-border-width: 0;
+	-fx-padding: 0px;
+	-fx-background-insets: 0;
+
+}
+
+.purchase-activity-content * {
+	-fx-background-color: #ffffff;
+}
+
+.purchase-header {
+	-fx-alignment: BOTTOM_LEFT;
+}

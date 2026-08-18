@@ -1,0 +1,34 @@
+.add-medicine {
+	-fx-min-height: 300px;
+	-fx-padding: 20px;
+}
+
+.add-medicine-action-bar {
+	-fx-min-height: 50px;
+}
+
+.add-medicine-label {
+	-fx-fill: #bdbdbd;
+	-fx-font-size: 14px;
+}
+
+.add-medicine-input {
+	-fx-background-color: #f0f3f9;
+	-fx-background-radius: 20px;
+	-fx-alignment: CENTER_LEFT;
+	-fx-padding: 10px 20px 10px 20px;
+	-fx-text-fill: #444746;
+	-fx-font-size: 20px;
+}
+
+.add-medicine-input.number {
+	-fx-background-color: #F8F9FD !important;
+	-fx-text-fill: #bdbdbd;
+	-fx-font-size: 30px;
+}
+
+.add-medicine-price-text * {
+	-fx-font-size: 13px;
+	-fx-fill: #1a9000;
+	-fx-text-fill: #1a9000;
+}

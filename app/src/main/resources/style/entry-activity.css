@@ -1,0 +1,30 @@
+.entry-presenter {
+	-fx-pref-height: 76px;
+	-fx-min-height: 76px;
+	-fx-max-height: 76px;
+
+	-fx-alignment: CENTER_LEFT;
+
+	-fx-padding: 20px;
+}
+
+.entry-presenter-text {
+	-fx-font-size: 30px;
+	-fx-fill: #444746;
+}
+
+.entry-activity-content {
+	-fx-min-height: 500px;
+	-fx-border-width: 0;
+	-fx-padding: 0px;
+	-fx-background-insets: 0;
+
+}
+
+.entry-activity-content * {
+	-fx-background-color: #ffffff;
+}
+
+.entry-header {
+	-fx-alignment: BOTTOM_LEFT;
+}

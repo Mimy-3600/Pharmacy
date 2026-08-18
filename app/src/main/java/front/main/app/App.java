@@ -6,10 +6,12 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.text.Font;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.Scene;
 import front.main.app.setter.NavigationSetter;
 import front.main.app.setter.ContentSetter;
+import front.main.app.setter.MenuSetter;
 import back.model.Medoc;
 import back.repository.MedocRepository;;
 
@@ -19,11 +21,15 @@ public class App extends Application {
 
 	public static VBox navigationLayout = new VBox(10);
 
-	public static VBox menuLayout = new VBox(0);
+	public static StackPane menuLayout = new StackPane();
 
 	public static HBox contentLayout = new HBox(0);
 
 	private static ArrayList<Medoc> _listsMedocs = new ArrayList<>();
+
+	// WINDOW SIZE
+	public static double windowWidth = 0;
+	public static double windowHeight = 0;
 
 	@Override
 	public void start(Stage stage) {
@@ -71,12 +77,16 @@ public class App extends Application {
 		 * */
 		NavigationSetter.set();
 		ContentSetter.set();
+		MenuSetter.set();
 
 		/**
 		 * Set up main Scene with Layout
 		 * */
 		Scene mainScene = new Scene(mainLayout);
 		this.setStyle(mainScene);
+
+		windowHeight = mainScene.getHeight();
+		windowWidth = mainScene.getWidth();
 
 		stage.setMaximized(true);
 		stage.setTitle("Pharmacy");
@@ -112,8 +122,12 @@ public class App extends Application {
 			getClass().getResource("/style/store-pane.css").toExternalForm(),
 			getClass().getResource("/style/store-activity.css").toExternalForm(),
 			getClass().getResource("/style/medicine-activity.css").toExternalForm(),
+			getClass().getResource("/style/purchase-activity.css").toExternalForm(),
+			getClass().getResource("/style/entry-activity.css").toExternalForm(),
 			getClass().getResource("/style/medoc.css").toExternalForm(),
-			getClass().getResource("/style/button.css").toExternalForm()
+			getClass().getResource("/style/button.css").toExternalForm(),
+			getClass().getResource("/style/add-medicine.css").toExternalForm(),
+			getClass().getResource("/style/remove-medicine.css").toExternalForm()
 		));
 
 
@@ -128,5 +142,10 @@ public class App extends Application {
 
 	public static ArrayList<Medoc> getMedocList() {
 		return _listsMedocs;
+	}
+
+	public static void refresh() {
+		_listsMedocs.clear();
+		_listsMedocs = MedocRepository.getListsMedoc();
 	}
 }

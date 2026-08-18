@@ -1,6 +1,7 @@
 package front.activities;
 
-import javafx.scene.text.Text;
+import front.main.app.App;
+import front.main.app.setter.MenuSetter;
 import front.components.ActiveButton;
 import front.components.CircleButton;
 import front.components.LargeInput;
@@ -9,13 +10,15 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 
 public class MedicineActivity extends VBox {
 
+	public boolean isFromThere = false;
 	private String name;
 	private HBox header = new HBox(0);
 	private HBox filterLayouBox = new HBox();
-	private MedicinePane medicinePane = new MedicinePane();
+	public MedicinePane medicinePane = new MedicinePane();
 
 	public MedicineActivity(String activityname) {
 		name = activityname;
@@ -55,6 +58,21 @@ public class MedicineActivity extends VBox {
 			medicinePane.search(newValue);
 		});
 
+		addButton.setOnAction(_ -> {
+			if(!App.displayMenu) {
+				MenuSetter.show();
+				MenuSetter.present("AddMedicine");
+
+				if(!isFromThere) {
+					this.retract();
+				}
+			} else {
+				MenuSetter.hide();
+				this.expand();
+			}
+			
+		});
+
 		header.getStyleClass().add("medoc-header");
 		header.getChildren().addAll(medocPresenter, spacer1, search, spacer2, addButton);
 
@@ -63,6 +81,7 @@ public class MedicineActivity extends VBox {
 
 	private void setContent() {
 		medicinePane.getStyleClass().add("medoc-activity-content");
+		HBox.setHgrow(medicinePane, Priority.ALWAYS);
 
 		this.getChildren().add(medicinePane);
 	}
@@ -99,5 +118,17 @@ public class MedicineActivity extends VBox {
 		});
 
 		this.getChildren().addAll(spacer, filterLayouBox);
+	}
+
+	public void expand() {
+		medicinePane.setMinWidth(1226);
+		medicinePane.setMaxWidth(1226);
+		isFromThere = false;
+	}
+
+	public void retract() {
+		medicinePane.setMaxWidth(medicinePane.getWidth() - 400);
+		medicinePane.setMinWidth(medicinePane.getWidth() - 400);
+		isFromThere = true;
 	}
 }

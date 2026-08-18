@@ -9,17 +9,7 @@ CREATE TABLE medoc (
   medoc_unit_price NUMERIC(10, 2) NOT NULL DEFAULT 0.50,
   medoc_stock INTEGER NOT NULL DEFAULT 0,
   medoc_is_active BOOLEAN NOT NULL DEFAULT TRUE, 
-  medoc_type VARCHAR(30) NOT NULL CHECK (medoc_type IN (
-    'TABLE',
-    'CAPSULE',
-    'SYRUP',
-    'DROPS',
-    'INJECTION',
-    'CREAM',
-    'GEL',
-    'SPRAY',
-    'INHALER'
-  ))
+  medoc_add_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 

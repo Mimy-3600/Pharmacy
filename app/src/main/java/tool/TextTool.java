@@ -25,4 +25,22 @@ public class TextTool {
 
 		return "#" + redS + greenS + blueS;
 	}
+
+	// Source - https://stackoverflow.com/a/20536597
+	// Posted by Suresh Atta, modified by community. See post 'Timeline' for change history
+	// Retrieved 2026-08-18, License - CC BY-SA 3.0
+
+	public static String getSaltString(int length) {
+	        String SALTCHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+	        StringBuilder salt = new StringBuilder();
+	        Random rnd = new Random();
+	        while (salt.length() < length) {
+	            int index = (int) (rnd.nextFloat() * SALTCHARS.length());
+	            salt.append(SALTCHARS.charAt(index));
+	        }
+	        String saltStr = salt.toString();
+	        return saltStr;
+
+	    }
+
 }

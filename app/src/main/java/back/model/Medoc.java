@@ -1,28 +1,27 @@
 package back.model;
 
+import java.math.BigDecimal;
+
 public class Medoc {
 
 	private String m_medocNumber;
 	private String m_medocDesignation;
-	private float m_medocUnitPrice;
+	private BigDecimal m_medocUnitPrice;
 	private int m_medocStock;
 	private boolean m_medocIsActive;
-	private String m_medocType;
 
 	public Medoc(
 		String medocNumber,
 		String medocDesignation,
-		float medocUnitPrice,
+		BigDecimal medocUnitPrice,
 		int medocStock,
-		boolean medocIsActive,
-		String medocType
+		boolean medocIsActive
 	) {
 		m_medocNumber = medocNumber;
 		m_medocDesignation = medocDesignation;
 		m_medocUnitPrice = medocUnitPrice;
 		m_medocStock = medocStock;
 		m_medocIsActive = medocIsActive;
-		m_medocType = medocType;
 	}
 
 
@@ -39,7 +38,7 @@ public class Medoc {
 	 	return this.m_medocDesignation;
 	 }
 
-	 public float getMedocUnitPrice() {
+	 public BigDecimal getMedocUnitPrice() {
 	 	return this.m_medocUnitPrice;
 	 }
 
@@ -49,9 +48,5 @@ public class Medoc {
 
 	 public int getMedocStock() {
 	 	return this.m_medocStock;
-	 }
-
-	 public String getMedocType() {
-	 	return this.m_medocType;
 	 }
 }

@@ -70,3 +70,24 @@
 .active-button.LAST {
 	-fx-border-radius: 0px 25px 25px 0px;
 }
+
+.legit-button {
+	-fx-pref-height: 40px;
+	-fx-min-height: 40px;
+	-fx-max-height: 40px;
+	-fx-min-width: 150px;
+	-fx-text-fill: #ffffff;
+	-fx-background-color: #d9f0ff !important;
+	-fx-background-radius: 30px;
+	-fx-alignment: CENTER;
+	-fx-font-size: 16px;
+}
+
+.legit-button.enable {
+	-fx-background-color: #5D65FF !important;
+	-fx-cursor: hand;
+}
+
+.legit-button.enable:hover {
+	-fx-background-color: #21519E !important;
+}

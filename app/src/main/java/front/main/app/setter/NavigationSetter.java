@@ -2,8 +2,6 @@ package front.main.app.setter;
 
 import java.util.Map;
 import java.util.HashMap;
-import javafx.animation.Timeline;
-import front.uitools.Animation;
 import front.components.NavButton;
 import front.main.app.App;
 
@@ -37,11 +35,10 @@ public class NavigationSetter {
 		//App.navigationLayout.getChildren().add(themeToggle);
 
 		mainButton.enable();
-		hideMenu();
+		MenuSetter.hide();
 
 		for(Map.Entry<String, NavButton> navItem : navButton.entrySet()) {
 			NavButton btn = navItem.getValue();
-			String page = navItem.getKey();
 
 			btn.getTouchButton().setOnAction(_ -> {
 				navigateTo(btn.getName());
@@ -54,45 +51,18 @@ public class NavigationSetter {
 		if(actualPage != pageName) {
 			for(Map.Entry<String, NavButton> navItem : navButton.entrySet()) {
 				NavButton btn = navItem.getValue();
-				String page = navItem.getKey();
 
 				btn.disable();
 			}
 
 			if(pageName == "Purchase" || pageName == "Recipe" || pageName == "Entry") {
-				showMenu();
+				MenuSetter.show();
 			} else {
-				hideMenu();
+				MenuSetter.hide();
 			}
 
 			actualPage = pageName;
 			navButton.get(pageName).enable();
 		}
 	}
-
-
-	/**
-	 * 
-	 * toggle menu
-	 *
-	 * Animation
-	 *
-	 * */
-	 public static void showMenu() {
-	 	if(!App.displayMenu) {
-			Timeline displayBlock = Animation.getWidthAnimation(App.menuLayout, 200, 400);
-			displayBlock.play();
-
-			App.displayMenu = true;
-	 	}
-	 }
-
-	 public static void hideMenu() {
-	 	if(App.displayMenu) {
-	 		Timeline displayNone = Animation.getWidthAnimation(App.menuLayout, 200, 0);
-			displayNone.play();
-
-			App.displayMenu = false;
-	 	}
-	 }
 }

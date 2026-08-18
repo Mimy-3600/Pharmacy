@@ -24,6 +24,64 @@ public class MedocRepository {
 		return _listMedoc;
 	}
 
+	public static boolean registerNewMedoc(Medoc medoc) {
+		if(!isConnectionOk) {
+			etablishConnection();
+		}
+
+		String insertMedocSQL = """
+			INSERT INTO medoc (
+				medoc_number, 
+				medoc_designation, 
+				medoc_unit_price
+			) VALUES (?, ?, ?);
+		""";
+
+		try(PreparedStatement stmt = _connection.prepareStatement(insertMedocSQL)) {
+			
+			stmt.setString(1, medoc.getMedocNumber());
+			stmt.setString(2, medoc.getMedocDesignation());
+			stmt.setBigDecimal(3, medoc.getMedocUnitPrice());
+
+			int ok = stmt.executeUpdate();
+			if(ok == 1) {
+				return true;
+			} else {
+				return false;
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException("Error while inserting");
+		}
+	}
+
+	public static boolean deleteMedoc(Medoc medoc) {
+		if(!isConnectionOk) {
+			etablishConnection();
+		}
+
+		String insertMedocSQL = """
+			DELETE FROM medoc WHERE medoc_number = ?;
+		""";
+
+		try(PreparedStatement stmt = _connection.prepareStatement(insertMedocSQL)) {
+			
+			stmt.setString(1, medoc.getMedocNumber());
+
+			int ok = stmt.executeUpdate();
+			if(ok == 1) {
+				return true;
+			} else {
+				return false;
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException("Error while deleting");
+		}
+	}
+
 	///////////////////////////////////////////////
 	//	INTERN OPERATIOm
 	///////////////////////////////////////////////
@@ -33,7 +91,7 @@ public class MedocRepository {
 			etablishConnection();
 		}
 
-		String query = "SELECT * FROM medoc";
+		String query = "SELECT * FROM medoc WHERE medoc_is_active = TRUE ORDER BY medoc_add_date DESC;";
 		try (
 			PreparedStatement stmt = _connection.prepareStatement(query);
 			ResultSet result = stmt.executeQuery();
@@ -42,10 +100,9 @@ public class MedocRepository {
 				Medoc medoc = new Medoc(
 					result.getString("medoc_number"),
 					result.getString("medoc_designation"),
-					result.getFloat("medoc_unit_price"),
+					result.getBigDecimal("medoc_unit_price"),
 					result.getInt("medoc_stock"),
-					result.getBoolean("medoc_is_active"),
-					result.getString("medoc_type")
+					result.getBoolean("medoc_is_active")
 				);
 
 				_listMedoc.add(medoc);
@@ -58,13 +115,13 @@ public class MedocRepository {
 	private static void etablishConnection() {
 		_interfaceSQL = new InterfaceSQL(
 			"XXXXXXXX",
-			"XXXXXXXXX",
-			000000,
+			"XXXXXXXX",
+			XXXXXXXX,
 			"XXXXXXXX"
 		);
 
-		_interfaceSQL.setUser("root");
-		_interfaceSQL.setPassword("Hasambarana36");
+		_interfaceSQL.setUser("XXXXXXXXXX");
+		_interfaceSQL.setPassword("XXXXXXXXXXXXXXXX");
 
 		try {
 			_interfaceSQL.connect();

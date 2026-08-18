@@ -48,12 +48,16 @@ public class StoreActivity extends VBox {
 			}
 		});
 
+		
+
 		spacer1.getStyleClass().add("spacer");
 		spacer2.getStyleClass().add("spacer");
 
 		header.getChildren().addAll(presenter, spacer1, search, spacer2, notificationButton);
 	}
 
+
+	// LE CONTENU EST ENCORE A ECRIRE
 	private void setContent() {
 		
 	}

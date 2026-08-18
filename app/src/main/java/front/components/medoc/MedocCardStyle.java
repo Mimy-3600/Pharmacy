@@ -1,14 +1,23 @@
 package front.components.medoc;
 
 import back.model.Medoc;
+import front.activities.ActivityManager;
+import front.activities.MedicineActivity;
 import front.components.MiniButton;
+import front.main.app.App;
+import front.main.app.setter.MenuSetter;
+import javafx.scene.Node;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
 public class MedocCardStyle extends VBox {
+	private Medoc actualMedoc;
+
 	public MedocCardStyle(Medoc medoc) {
+		actualMedoc = medoc;
+
 		Text number = new Text(medoc.getMedocNumber());
 		number.getStyleClass().add("medoc-card-number");
 
@@ -43,10 +52,30 @@ public class MedocCardStyle extends VBox {
 		MiniButton deleteButton = new MiniButton("Delete");
 		MiniButton editButton = new MiniButton("Edit");
 		MiniButton purchaseButton = new MiniButton("BagMini");
+		MiniButton entryButton = new MiniButton("Box");
 
-		action.getChildren().addAll(spacer4, purchaseButton, editButton, deleteButton);
+		deleteButton.setOnAction(_ -> this.menuSet());
+
+		action.getChildren().addAll(spacer4, entryButton, purchaseButton, editButton, deleteButton);
 
 		this.getChildren().addAll(number, spacer, desigantion, spacer2, info, action);
 		this.getStyleClass().add("medoc-card");
+	}
+
+	public void menuSet() {
+		MenuSetter.show();
+
+		Node medPane = App.contentLayout.getChildren().getFirst();
+		ActivityManager activityManager = (ActivityManager)medPane;
+
+		MedicineActivity med = (MedicineActivity)activityManager.getActivityByName("Medicine");	
+
+		if(!App.displayMenu) {
+			med.retract();
+			App.displayMenu = true;
+		}
+
+		MenuSetter.setMedoc(actualMedoc);
+		MenuSetter.present("RemoveMedicine");
 	}
 }

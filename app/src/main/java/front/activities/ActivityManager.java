@@ -4,11 +4,6 @@ import java.util.Map;
 import java.util.HashMap;
 import javafx.scene.layout.VBox;
 import javafx.scene.layout.StackPane;
-import front.activities.StoreActivity;
-import front.activities.MedicineActivity;
-import front.activities.PurchaseActivity;
-import front.activities.EntryActivity;
-import front.activities.RecipeActivity;
 
 public class ActivityManager extends StackPane {
 
@@ -47,5 +42,9 @@ public class ActivityManager extends StackPane {
 	public void setActivity(String name) {
 		this.getChildren().clear();
 		this.getChildren().addAll(activities.get(name));
+	}
+
+	public VBox getActivityByName(String name) {
+		return activities.get(name);
 	}
 }
